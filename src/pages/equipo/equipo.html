@@ -1,0 +1,22 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{nombre}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-row>
+    <ion-col class="card-background-page" col-4 *ngFor="let heroe of heroes">
+      <ion-card (click)="onViewHeroe(heroe)">
+        <div class="card-title"> {{heroe.nombre}}</div>
+        <img [src]="heroe.img" alt="">
+
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <button ion-button outline color="danger" (click)="logout()">DesLogueate</button>
+
+  <button ion-button outline (click)="logIn()">Logueate</button>
+</ion-content>

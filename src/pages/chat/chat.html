@@ -1,0 +1,40 @@
+<!--
+  Generated template for the Chat page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>chat</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<!-- //ng-class="{'text-right': _cs.usuario.uid === chat.uid,'text-right' :_cs.usuario.uid !== chat.uid}" -->
+
+<ion-content class="chat-window" padding>
+  <div id="app-mensajes" class="app-mensajes">
+    <ion-list no-lines>
+      <div *ngFor="let chat of _cs.chats | async">
+        <div text-right *ngIf="chat.uid === user['uid']">
+
+
+          <ion-badge>{{chat.nombre}}</ion-badge>
+          <p>{{chat.mensaje}}</p>
+        </div>
+        <div *ngIf="chat.uid !== user['uid']">
+
+
+          <ion-badge text-right right> {{chat.nombre}}</ion-badge>
+          <p>{{chat.mensaje}}</p>
+        </div>
+
+      </div>
+    </ion-list>
+
+
+  </div>
+  <ion-input type="text" [(ngModel)]="mensaje" name="mensaje" (keyup.enter)="enviar()" placeholder="mensaje..."></ion-input>
+
+</ion-content>

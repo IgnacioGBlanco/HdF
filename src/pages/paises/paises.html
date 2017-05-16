@@ -1,0 +1,26 @@
+<!--
+  Generated template for the Paises page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{usuario}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-row>
+    <ion-col class="card-background-page" col-6 *ngFor="let pais of paises" [navPush]="equipoPage" [navParams]="{pais : pais}">
+      <ion-card>
+        <div class="card-title"> {{pais.nombre}}</div>
+        <img [src]="pais.img" alt="">
+
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>
